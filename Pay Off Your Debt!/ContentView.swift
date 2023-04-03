@@ -7,20 +7,18 @@
 
 import SwiftUI
 
-
-
 struct ContentView: View {
     // Status
-    @State private var showingSheet: Bool = false
-    @State private var showingAlert: Bool = false
-    @State private var showingContacts: Bool = false
+    @State var showingSheet: Bool = false
+    @State var showingAlert: Bool = false
+    @State var showingContacts: Bool = false
     
     // Data
-    @State private var contact: String = ""
-    @State private var nominal: String = ""
-    @State private var note: String = ""
-    @State private var date: Date = Date()
-    @State private var type: String = ""
+    @State var contact: String = ""
+    @State var nominal: String = ""
+    @State var note: String = ""
+    @State var date: Date = Date()
+    @State var type: String = ""
     
     var numberFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -29,7 +27,7 @@ struct ContentView: View {
     }()
     
     var body: some View {
-        VStack {
+        return VStack {
             Button("New Debt") {
                 showingSheet.toggle()
             }
@@ -40,7 +38,7 @@ struct ContentView: View {
                         List {
                             Section {
                                 HStack {
-                                    Text("Contact")
+                                    Text("Contact")
                                     Spacer()
                                     Label("Contact", systemImage: "plus.circle")
                                         .font(.title3)
@@ -50,11 +48,10 @@ struct ContentView: View {
                                     self.showingContacts = true
                                 }
                                 .sheet(isPresented: $showingContacts) {
-                                    ContactView()
-                                    
+                                    ContactView(showingContact: $showingContacts)
                                 }
                                 
-                                TextField("Rp0.00", value: $nominal, formatter: numberFormatter)
+                                TextField("IDR0.00", value: $nominal, formatter: numberFormatter)
                                 HStack {
                                     Text("Repayment Date")
                                     Spacer()

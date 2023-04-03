@@ -8,23 +8,72 @@
 import SwiftUI
 
 struct ContactView: View {
+    // Status
+    @Binding var showingContact: Bool
+    
     var body: some View {
         NavigationView {
             VStack {
                 List {
-                    Text("Person 1")
-                    Text("Person 2")
-                    Text("Person 3")
-                    Text("Person 4")
-                    Text("Person 5")
-                    Text("Person 6")
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 32, height: 32)
+                            .background(Color(UIColor.systemGroupedBackground))
+                            .clipShape(Circle())
+                            .foregroundColor(Color.accentColor)
+                        VStack {
+                            Text("Person 1")
+                        }
+                    }
+                    .padding(EdgeInsets())
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 32, height: 32)
+                            .background(Color(UIColor.systemGroupedBackground))
+                            .clipShape(Circle())
+                            .foregroundColor(Color.accentColor)
+                        VStack {
+                            Text("Person 2")
+                        }
+                    }
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 32, height: 32)
+                            .background(Color(UIColor.systemGroupedBackground))
+                            .clipShape(Circle())
+                            .foregroundColor(Color.accentColor)
+                        VStack {
+                            Text("Person 3")
+                        }
+                    }
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 32, height: 32)
+                            .background(Color(UIColor.systemGroupedBackground))
+                            .clipShape(Circle())
+                            .foregroundColor(Color.accentColor)
+                        VStack {
+                            Text("Person 4")
+                        }
+                    }
+                    HStack {
+                        Image(systemName: "person.fill")
+                            .frame(width: 32, height: 32)
+                            .background(Color(UIColor.systemGroupedBackground))
+                            .clipShape(Circle())
+                            .foregroundColor(Color.accentColor)
+                        VStack {
+                            Text("Person 5")
+                        }
+                    }
                 }
                 .listStyle(.plain)
             }
             .navigationBarTitle("Contacts",displayMode: .automatic)
             .navigationBarItems(
                 leading:Button("Back", action: {
-//                    self.showingSheet.toggle()
+                    print("Button Clicked")
+                    showingContact = false
                 })
             )
         }
@@ -33,8 +82,8 @@ struct ContactView: View {
     }
 }
 
-struct ContactView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContactView()
-    }
-}
+//struct ContactView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContactView()
+//    }
+//}

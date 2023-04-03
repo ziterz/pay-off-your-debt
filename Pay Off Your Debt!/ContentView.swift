@@ -17,17 +17,22 @@ struct ContentView: View {
     @State var contact: String = ""
     @State var nominal: String = ""
     @State var note: String = ""
-    @State var date: Date = Date()
-    @State var type: String = ""
+    @State var repaymentDate: Date = Date()
+    @State var type: String = "Borrow"
     
-    var numberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        return formatter
-    }()
+//    var numberFormatter: NumberFormatter = {
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .currency
+//        return formatter
+//    }()
     
     var body: some View {
-        return VStack {
+        VStack {
+            Text(contact)
+            Text(nominal)
+            Text(note)
+//            Text(repaymentDate)
+            Text(type)
             Button("New Debt") {
                 showingSheet.toggle()
             }
@@ -48,16 +53,16 @@ struct ContentView: View {
                                     self.showingContacts = true
                                 }
                                 .sheet(isPresented: $showingContacts) {
-                                    ContactView(showingContact: $showingContacts)
+                                    ContactView(showingContact: $showingContacts, contact: $contact)
                                 }
                                 
-                                TextField("IDR0.00", value: $nominal, formatter: numberFormatter)
+                                TextField("IDR0.00", text: $nominal)
                                 HStack {
                                     Text("Repayment Date")
                                     Spacer()
                                     DatePicker(
                                         "",
-                                        selection: $date,
+                                        selection: $repaymentDate,
                                         displayedComponents: [.date]
                                     )
                                 }
@@ -76,7 +81,7 @@ struct ContentView: View {
                             
                             Section {
                                 Button {
-                                    self.showingAlert = true
+                                    self.showingSheet.toggle()
                                 } label: {
                                     Text("Save")
                                         .frame(maxWidth: .infinity)

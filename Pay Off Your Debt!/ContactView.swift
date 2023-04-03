@@ -10,10 +10,11 @@ import SwiftUI
 struct ContactView: View {
     // Status
     @Binding var showingContact: Bool
+    @Binding var contact: String
     
     var body: some View {
         NavigationView {
-            VStack {
+            NavigationStack {
                 List {
                     HStack {
                         Image(systemName: "person.fill")
@@ -25,7 +26,10 @@ struct ContactView: View {
                             Text("Person 1")
                         }
                     }
-                    .padding(EdgeInsets())
+                    .onTapGesture {
+                        contact = "Person 1"
+                        showingContact = false
+                    }
                     HStack {
                         Image(systemName: "person.fill")
                             .frame(width: 32, height: 32)
@@ -35,6 +39,10 @@ struct ContactView: View {
                         VStack {
                             Text("Person 2")
                         }
+                    }
+                    .onTapGesture {
+                        contact = "Person 2"
+                        showingContact = false
                     }
                     HStack {
                         Image(systemName: "person.fill")
@@ -46,6 +54,10 @@ struct ContactView: View {
                             Text("Person 3")
                         }
                     }
+                    .onTapGesture {
+                        contact = "Person 3"
+                        showingContact = false
+                    }
                     HStack {
                         Image(systemName: "person.fill")
                             .frame(width: 32, height: 32)
@@ -56,6 +68,10 @@ struct ContactView: View {
                             Text("Person 4")
                         }
                     }
+                    .onTapGesture {
+                        contact = "Person 4"
+                        showingContact = false
+                    }
                     HStack {
                         Image(systemName: "person.fill")
                             .frame(width: 32, height: 32)
@@ -65,6 +81,10 @@ struct ContactView: View {
                         VStack {
                             Text("Person 5")
                         }
+                    }
+                    .onTapGesture {
+                        contact = "Person 5"
+                        showingContact = false
                     }
                 }
                 .listStyle(.plain)

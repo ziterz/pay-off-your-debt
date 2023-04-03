@@ -13,6 +13,7 @@ struct ContentView: View {
     // Status
     @State private var showingSheet: Bool = false
     @State private var showingAlert: Bool = false
+    @State private var showingContacts: Bool = false
     
     // Data
     @State private var contact: String = ""
@@ -20,6 +21,12 @@ struct ContentView: View {
     @State private var note: String = ""
     @State private var date: Date = Date()
     @State private var type: String = ""
+    
+    var numberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        return formatter
+    }()
     
     var body: some View {
         VStack {
@@ -40,9 +47,14 @@ struct ContentView: View {
                                         .labelStyle(.iconOnly)
                                 }
                                 .onTapGesture {
-                                    self.showingAlert = true
+                                    self.showingContacts = true
                                 }
-                                TextField("IDR", text: $nominal)
+                                .sheet(isPresented: $showingContacts) {
+                                    ContactView()
+                                    
+                                }
+                                
+                                TextField("Rp0.00", value: $nominal, formatter: numberFormatter)
                                 HStack {
                                     Text("Repayment Date")
                                     Spacer()
@@ -100,7 +112,6 @@ struct ContentView: View {
                 
                 
             }
-            .padding()
         }
     }
     

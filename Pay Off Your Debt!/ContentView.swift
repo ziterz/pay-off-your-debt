@@ -11,7 +11,7 @@ struct ContentView: View {
     // Status
     @State var showingSheet: Bool = false
     @State var showingAlert: Bool = false
-    @State var showingContacts: Bool = false
+    @State var showingContacts: Bool = false
     
     // Data
     @State var contact: String = ""
@@ -38,7 +38,7 @@ struct ContentView: View {
                         List {
                             Section {
                                 HStack {
-                                    Text("Contact")
+                                    Text("Contact")
                                     Spacer()
                                     Label("Contact", systemImage: "plus.circle")
                                         .font(.title3)

@@ -19,8 +19,9 @@ struct ContactView: View {
                     Text("Person 5")
                     Text("Person 6")
                 }
+                .listStyle(.plain)
             }
-            .navigationBarTitle("Contacts",displayMode: .inline)
+            .navigationBarTitle("Contacts",displayMode: .automatic)
             .navigationBarItems(
                 leading:Button("Back", action: {
 //                    self.showingSheet.toggle()

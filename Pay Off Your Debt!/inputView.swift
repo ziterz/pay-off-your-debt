@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct inputView: View {
     // Status
     @State var showingSheet: Bool = false
     @State var showingAlert: Bool = false
@@ -110,9 +110,9 @@ struct ContentView: View {
         }
     }
     
-    struct ContentView_Previews: PreviewProvider {
+    struct inputView_Previews: PreviewProvider {
         static var previews: some View {
-            ContentView()
+            inputView()
         }
     }
 }
